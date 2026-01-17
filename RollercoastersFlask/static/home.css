@@ -8,7 +8,7 @@ body {
 }
          
 img {
-    width: 300px;
+    width: 280px;
     border-radius: 10px;
 
 }
@@ -79,4 +79,5 @@ input[type="number"] {
 .collapse-arrow.open {
     transform: rotate(90deg);
 }
+
 
