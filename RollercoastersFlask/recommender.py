@@ -2,6 +2,7 @@ from flask import render_template
 from config import ALLOWED_COASTERS
 from security import validate_length
 from flask import request
+from flask import redirect, url_for
 
 # ------------------ Helper function ------------------ #
 
@@ -22,17 +23,17 @@ def young_kids_recommender(data):
             return ask("soaked", data)
 
         if data["soaked"] == "yes":
-            return render_template("coasters/Atlantica_Supersplash.html")
+            return redirect(url_for("coaster_page", name="Atlantica_Supersplash"))
 
         if "system" not in data:
             return ask("system", data)
 
-        return render_template(
-            "coasters/Alpen_Express.html" if data["system"] == "launch"
-            else "coasters/Pegasus.html"
-        )
+        coaster = "Alpen_Express" if data["system"] == "launch" else "Pegasus"
+        return redirect(url_for("coaster_page", name=coaster))
 
-    return render_template("coasters/Ba_a_a_Express.html")
+    # butterflies == "no"
+    return redirect(url_for("coaster_page", name="Ba_a_a_Express"))
+
 
 # ---------- Kids_recommender ---------- #
 def kids_recommender(data):
@@ -42,8 +43,10 @@ def kids_recommender(data):
     if data["exciting"] == "yes":
         if "first_coaster" not in data:
             return ask("first_coaster", data)
-
-        return funny_recommender(data) if data["first_coaster"] == "yes" else render_template("coasters/Wodan.html")
+        
+        if data["first_coaster"] == "yes":
+            return funny_recommender(data) 
+        return redirect(url_for("coaster_page", name="Wodan"))
     return funny_recommender(data)
 
 
@@ -62,20 +65,19 @@ def intense_recommender(data):
             if "comfortable_inversions" not in data:
                 return ask("comfortable_inversions", data)
 
-            return render_template(
-                "coasters/Voltron.html" if data["comfortable_inversions"] == "yes"
-                else "coasters/Blue_Fire.html"
-            )
+            coaster = "Voltron" if data["comfortable_inversions"] == "yes" else "Blue_Fire"
+            return redirect(url_for("coaster_page", name=coaster))
 
+        # inversions == no
         if "spin_wood" not in data:
             return ask("spin_wood", data)
 
-        return render_template(
-            "coasters/Euromir.html" if data["spin_wood"] == "spinning_coaster"
-            else "coasters/Wodan.html"
-        )
+        coaster = "Euromir" if data["spin_wood"] == "spinning_coaster" else "Wodan"
+        return redirect(url_for("coaster_page", name=coaster))
 
+    # intense == no
     return funny_recommender(data)
+
 
 # ---------- High_recommender ---------- #
 def high_recommender(data):
@@ -83,7 +85,7 @@ def high_recommender(data):
         return ask("very_high", data)
 
     if data["very_high"] == "yes":
-        return render_template("coasters/Silverstar.html")
+        return redirect(url_for("coaster_page", name="Silverstar"))
 
     return intense_recommender(data)
 
@@ -103,11 +105,10 @@ def funny_recommender(data):
             if "indoor_type" not in data:
                 return ask("indoor_type", data)
 
-            return render_template(
-                "coasters/Arthur.html" if data["indoor_type"] == "darkride"
-                else "coasters/Cancan_Coaster.html"
-            )
+            coaster = "Arthur" if data["indoor_type"] == "darkride" else "Cancan_Coaster"
+            return redirect(url_for("coaster_page", name=coaster))
 
+        # indoor == no
         if "soaked" not in data:
             return ask("soaked", data)
 
@@ -117,20 +118,17 @@ def funny_recommender(data):
         if "rail_type" not in data:
             return ask("rail_type", data)
 
-        return render_template(
-            "coasters/Schweizer_Bobbahn.html" if data["rail_type"] == "bobsled"
-            else "coasters/Matterhorn_Blitz.html"
-        )
+        coaster = "Schweizer_Bobbahn" if data["rail_type"] == "bobsled" else "Matterhorn_Blitz"
+        return redirect(url_for("coaster_page", name=coaster))
 
-    return render_template("coasters/Alpen_Express.html")
-
+    # funny == no
+    return redirect(url_for("coaster_page", name="Alpen_Express"))
 
 # ---------- Soaked_recommender ---------- #
 def soaked_recommender(data):
     if "splash_type" not in data:
         return ask("splash_type", data)
 
-    return render_template(
-        "coasters/Atlantica_Supersplash.html" if data["splash_type"] == "splash"
-        else "coasters/Poseidon.html"
-    )
+    coaster = "Atlantica_Supersplash" if data["splash_type"] == "splash" else "Poseidon"
+    return redirect(url_for("coaster_page", name=coaster))
+
