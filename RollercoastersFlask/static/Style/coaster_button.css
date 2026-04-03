@@ -1,0 +1,82 @@
+/* ---------------------------------------------------------
+   COASTER LIST LAYOUT
+   Removes default list styling and creates a clean,
+   evenly spaced grid layout for coaster rating items.
+--------------------------------------------------------- */
+
+.coaster-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px; /* Space between list items */
+}
+
+
+
+/* ---------------------------------------------------------
+   COASTER LIST ITEM STYLE
+   Aligns star icons and text horizontally and improves readability.
+--------------------------------------------------------- */
+
+.coaster-list li {
+  display: flex;
+  align-items: center; /* Vertically centers star + text */
+  gap: 10px;           /* Space between star and coaster name */
+  font-size: 1.1rem;
+}
+
+
+
+/* ---------------------------------------------------------
+   STAR ICON STYLE
+   Used for clickable star icons in the rating list.
+   Includes hover animation and gold color.
+--------------------------------------------------------- */
+
+.star {
+  font-size: 1.4rem;
+  color: #ffcc00; /* Bright gold star color */
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.star:hover {
+  color: #e6b800; /* Slightly darker gold on hover */
+  transform: scale(1.2); /* Enlarges star for feedback */
+}
+
+
+/* ---------------------------------------------------------
+   COASTER NAME TEXT
+   Applies a neutral dark color to coaster names.
+--------------------------------------------------------- */
+
+.coaster-list span {
+  color: #333;
+}
+
+
+/* ---------------------------------------------------------
+   STAR RATING STYLE
+   Used for displaying star icons or star-like characters.
+   Increases size, applies gold color, and adds spacing.
+--------------------------------------------------------- */
+
+.stars {
+    font-size: 1.3rem;
+    color: #f5c518;      /* Gold-like color often used for ratings */
+    letter-spacing: 2px; /* Adds spacing between stars */
+}
+
+
+/* ---------------------------------------------------------
+   RATING TEXT SPACING
+   Applies small vertical spacing between rating lines.
+   Used inside rating blocks to improve readability.
+--------------------------------------------------------- */
+
+.rating-block p {
+    margin: 4px 0;
+}

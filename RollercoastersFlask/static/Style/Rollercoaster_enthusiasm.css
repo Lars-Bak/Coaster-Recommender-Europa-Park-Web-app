@@ -1,0 +1,80 @@
+/* -------------------------------------------
+   VIDEO SIZE BEHAVIOR
+   Used for all <video> elements with class "video-small" or "video-large".
+   The video enlarges when playing and shrinks when paused.
+------------------------------------------- */
+
+/* Default small video size */
+.video-small {
+    width: 300px;
+    transition: width 0.4s ease; /* Smooth animation when resizing */
+}
+
+/* Enlarged video size when playing */
+.video-large {
+    width: 600px;
+}
+
+
+/* -------------------------------------------
+   FLEX CONTAINER FOR TEXT + IMAGE/VIDEO
+   Used in sections where text and media appear side-by-side.
+   Example: Rock 'n' Roller Coaster, Free Fall, Autism section.
+------------------------------------------- */
+
+.container {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Space between text and image/video */
+}
+
+/* Limits the width of the text block for better readability */
+.tekst {
+    max-width: 600px;
+}
+
+
+
+/* -------------------------------------------
+   CLICKABLE IMAGE (FREE FALL PHOTO)
+   Adds hover effect and enables zoom overlay via JavaScript.
+------------------------------------------- */
+
+/* Small image with hover animation */
+.clickable-image {
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Smooth hover zoom */
+}
+
+/* Slight zoom on hover */
+.clickable-image:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* -------------------------------------------
+   FULLSCREEN IMAGE OVERLAY
+   Created dynamically when clicking a .clickable-image.
+   Darkens the background and centers the enlarged image.
+------------------------------------------- */
+
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8); /* Dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensures overlay appears above all content */
+}
+
+/* Enlarged image inside the overlay */
+.image-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px; /* Slight rounding for a polished look */
+}
