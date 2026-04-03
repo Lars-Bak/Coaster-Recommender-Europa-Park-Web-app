@@ -1,0 +1,189 @@
+/* ---------------------------------------------------------
+   LANGUAGE SWITCH BUTTONS
+   Circular flag buttons used to switch between languages.
+   Includes hover animation and image cropping.
+--------------------------------------------------------- */
+
+.flag-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden; /* Ensures the flag image stays perfectly round */
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.flag-btn:hover {
+    transform: scale(1.15); /* Slight zoom on hover */
+}
+
+.flag-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes the flag fill the circle */
+    border-radius: 50%;
+}
+
+
+
+/* ---------------------------------------------------------
+   GLOBAL TEXT & PAGE LAYOUT
+   Applies general typography and centers the main content.
+--------------------------------------------------------- */
+
+body {          
+    font-family: Arial;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* ---------------------------------------------------------
+   DEFAULT IMAGE STYLE
+   Applies rounded corners to all images.
+--------------------------------------------------------- */
+
+img {
+    width: flex; /* This has no effect — can be removed */
+    border-radius: 10px;
+}
+
+
+
+/* ---------------------------------------------------------
+   MAIN CONTENT BOX
+   Light blue container used to wrap the page content.
+--------------------------------------------------------- */
+
+.info-box {
+    background: #eef7ff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 800px;
+    margin: 20px auto;
+
+    display: block;
+    flex-wrap: wrap; /* Has no effect on block elements — optional */
+}
+
+
+
+/* ---------------------------------------------------------
+   COASTER RECOMMENDER FORM ELEMENTS
+   Styles for buttons, dropdowns, and number inputs.
+--------------------------------------------------------- */
+
+button {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+select,
+input[type="number"] {
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 300px;
+}
+
+
+
+/* ---------------------------------------------------------
+   COASTER LIST GRID
+   Two-column layout for coaster recommendation links.
+--------------------------------------------------------- */
+
+.coaster-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px;
+
+    text-align: left;
+}
+
+
+
+/* ---------------------------------------------------------
+   TEXT + IMAGE/VIDEO LAYOUT
+   Used for sections where text appears next to an image or video.
+--------------------------------------------------------- */
+
+.container {
+    display: flex;
+    align-items: flex-start; /* Aligns image/video at the top */
+    gap: 20px; /* Space between text and media */
+}
+
+.tekst {
+    max-width: 600px; /* Improves readability */
+}
+
+
+
+/* ---------------------------------------------------------
+   CLICKABLE IMAGE (FREE FALL PHOTO)
+   Adds hover animation and enables fullscreen overlay.
+--------------------------------------------------------- */
+
+.clickable-image {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.clickable-image:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* ---------------------------------------------------------
+   FULLSCREEN IMAGE OVERLAY
+   Dark background + centered enlarged image.
+   Created dynamically via JavaScript.
+--------------------------------------------------------- */
+
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.image-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
