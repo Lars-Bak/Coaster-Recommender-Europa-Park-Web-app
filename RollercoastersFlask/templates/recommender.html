@@ -1,0 +1,297 @@
+ <!-- Reference to the stylsheet -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/static/Style/coaster_button.css" rel="stylesheet">
+        <link href="/static/Style/home.css" rel="stylesheet">
+        <title> Coaster Recommender</title>
+    </head>
+    <body>
+        <!-- The question round -->
+        <div class="info-box">
+            
+            <button onclick="setLanguage('nl')" class="flag-btn">
+                <img src="/static/flags/nl.png" alt="NL">
+            </button>
+
+            <button onclick="setLanguage('en')" class="flag-btn">
+                <img src="/static/flags/en.png" alt="EN">
+            </button>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/static/pages/europa-park-intro.html">Europa-Park</a>
+                <a href="/static/pages/Notes about this website.html">Notes about this website</a>
+                <a href="/static/pages/Rollercoaster_enthusiasm.html">Rollercoaster_enthusiasm</a>
+            </nav>
+
+            <p><hr style="border-top: 1px solid black;">
+            <h1> Europa Park Coaster Recommender</h1>
+            <hr style="border-top: 1px solid black;"></p>
+            <form method="POST">
+
+    {% for key, value in data.items() %}
+    <input type="hidden" name="{{ key }}" value="{{ value }}">
+    {% endfor %}
+    
+        <!-- Length check -->
+        {% if step == "length" %}
+            <label data-i18n="length.question"></label>
+            <input type="number" name="length" required>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        <!-- Young kids recommender -->
+        {% if step == "butterflies" %}
+            <label data-i18n="butterflies.question"></label>
+            <p>
+            <select name="butterflies">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "system" %}
+            <label data-i18n="system.question"></label>
+            <p>
+            <select name="system">
+                <option value="launch" data-i18n="system.launch"></option>
+                <option value="slope" data-i18n="system.slope"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        <!-- Kids recommender -->
+        {% if step == "exciting" %}
+            <label>
+                <span data-i18n="exciting.question"></span><br>
+                <span data-i18n="exciting.yes"></span><br>
+                <span data-i18n="exciting.no"></span>
+            </label>
+            <p>
+            <select name="exciting">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "first_coaster" %}
+            <label>
+                <span data-i18n="first_coaster.question"></span><br>
+                <span data-i18n="first_coaster.yes"></span><br>
+                <span data-i18n="first_coaster.no"></span>
+            </label>
+            <p>
+            <select name="first_coaster">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        <!-- Intense recommender -->
+        {% if step == "intense" %}
+            <label>
+                <span data-i18n="intense.question"></span><br>
+                <span data-i18n="intense.yes"></span><br>
+                <span data-i18n="intense.no"></span>
+            </label>
+            <p>
+            <select name="intense">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "inversions" %}
+            <label data-i18n="inversions.question"></label>
+            <p>
+            <select name="inversions">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "comfortable_inversions" %}
+            <label data-i18n="comfortable_inversions.question"></label>
+            <p>
+            <select name="comfortable_inversions">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "spin_wood" %}
+            <label data-i18n="spin_wood.question"></label>
+            <p>
+            <select name="spin_wood">
+                <option value="spinning_coaster" data-i18n="spin_wood.spinning"></option>
+                <option value="wooden_and_rough" data-i18n="spin_wood.wooden"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        <!-- High recommender -->
+        {% if step == "very_high" %}
+            <label data-i18n="very_high.question"></label>
+            <p>
+            <select name="very_high">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        <!-- Funny recommender -->
+        {% if step == "funny" %}
+            <label data-i18n="funny.question"></label>
+            <p>
+            <select name="funny">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "indoor" %}
+            <label data-i18n="indoor.question"></label>
+            <p>
+            <select name="indoor">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "indoor_type" %}
+            <label data-i18n="indoor_type.question"></label>
+            <p>
+            <select name="indoor_type">
+                <option value="darkride" data-i18n="indoor_type.darkride"></option>
+                <option value="real coaster" data-i18n="indoor_type.coaster"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "rail_type" %}
+            <label data-i18n="rail_type.question"></label>
+            <p>
+            <select name="rail_type">
+                <option value="bobsled" data-i18n="rail_type.bobsled"></option>
+                <option value="wild mouse" data-i18n="rail_type.wildmouse"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        <!-- Soaked recommender -->
+        {% if step == "soaked" %}
+            <label data-i18n="soaked.question"></label>
+            <p>
+            <select name="soaked">
+                <option value="yes" data-i18n="option.yes"></option>
+                <option value="no" data-i18n="option.no"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+        {% if step == "splash_type" %}
+            <label data-i18n="splash_type.question"></label>
+            <p>
+            <select name="splash_type">
+                <option value="splash" data-i18n="splash_type.splash"></option>
+                <option value="track" data-i18n="splash_type.track"></option>
+            </select>
+            <p>
+            <button type="submit" data-i18n="button.next"></button>
+        {% endif %}
+
+    
+
+    <!-- Back / Undo button -->
+    {% if data %}
+    {% set last_key = data|list|last %}
+    <div class="button">
+        <a href="{{ url_for('undo', key=last_key, **data) }}">← Back</a>
+    </div>
+    {% endif %}
+    </form>
+  <p>
+    <br><br>
+    
+    <hr style="border-top: 1px solid black;">
+
+<div data-i18n="intro.titel"></div>
+
+
+<hr style="border-top: 1px solid black;">
+
+    <div class="container">
+        <div class="tekst">
+
+            <div data-i18n="intro.full"></div>
+
+            </div>
+    <img src="/static/Image/Voltron.jpg" 
+    alt="Voltron"
+    width="200" 
+    class="clickable-image">
+    </div>
+
+
+    <hr style="border-top: 1px solid black;">
+  </p>
+    
+    <!-- Make it possible to navigate directly to a coaster page for usability and debugging purposes -->
+      
+
+<ul class="coaster-list">
+    <li><a class="star" href="/coaster/Blue_Fire">★</a><span>Blue Fire</span></li>
+    <li><a class="star" href="/coaster/Silverstar">★</a><span>Silver Star</span></li>
+    <li><a class="star" href="/coaster/Wodan">★</a><span>Wodan</span></li>
+    <li><a class="star" href="/coaster/Euromir">★</a><span>Euro-Mir</span></li>
+    <li><a class="star" href="/coaster/Voltron">★</a><span>Voltron</span></li>
+    <li><a class="star" href="/coaster/Pegasus">★</a><span>Pegasus</span></li>
+    <li><a class="star" href="/coaster/Poseidon">★</a><span>Poseidon</span></li>
+    <li><a class="star" href="/coaster/Atlantica_Supersplash">★</a><span>Atlantica Supersplash</span></li>
+    <li><a class="star" href="/coaster/Matterhorn_Blitz">★</a><span>Matterhorn Blitz</span></li>
+    <li><a class="star" href="/coaster/Schweizer_Bobbahn">★</a><span>Schweizer Bobbahn</span></li>
+    <li><a class="star" href="/coaster/Alpen Express">★</a><span>Alpenexpress</span></li>
+    <li><a class="star" href="/coaster/Ba_a_a_Express">★</a><span>Ba-a-a Express</span></li>
+    <li><a class="star" href="/coaster/CanCan_Coaster">★</a><span>CanCan Coaster</span></li>
+    <li><a class="star" href="/coaster/Arthur">★</a><span>Arthur</span></li>
+</ul>
+
+<hr style="border-top: 1px solid black;"><br>
+
+<a href="{{ url_for('show_list') }}">My coaster list</a>
+
+  </div>
+
+<script src="/static/js/i18n.js"></script>
+<script src="/static/js/app.js"></script>
+<script src="/static/js/Rollercoaster_enthusiasm.js"></script>
+
+
+
+</body>
+</html>

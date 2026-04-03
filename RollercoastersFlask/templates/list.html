@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/Style/coaster_list.css" rel="stylesheet">
+    <title>Your Coaster List</title>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Your Coaster List </h1>
+
+    {% if items %}
+        <table>
+            <tr>
+                <th>Coaster</th>
+                <th>Added</th>
+            </tr>
+
+            {% for coaster, added_at in items %}
+            <tr>
+                <td>{{ coaster }}</td>
+                <td>{{ added_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>You haven't added any coasters yet.</p>
+    {% endif %}
+
+    <a class="back" href="{{ url_for('recommender') }}">← Back to Recommender</a>
+</div>
+
+</body>
+</html>

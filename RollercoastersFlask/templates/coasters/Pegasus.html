@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/static/Style/coaster_button.css" rel="stylesheet">
+    <link href="/static/Style/home.css" rel="stylesheet">
+    <script src="/static/js/i18n.js"></script>
+    <title>Pegasus</title>
+</head>
+<body>
+    <h1> Pegasus</h1>
+    <div class="info-box">
+        <button onclick="setLanguage('nl')" class="flag-btn">
+                <img src="/static/flags/nl.png" alt="NL">
+            </button>
+
+            <button onclick="setLanguage('en')" class="flag-btn">
+                <img src="/static/flags/en.png" alt="EN">
+            </button>
+        <hr style="border-top: 1px solid black;">
+        <h2><div data-i18n="Pegasus.titel"></div></h2>
+        <hr style="border-top: 1px solid black;">
+        <iframe width="448" height="252" src="https://www.youtube.com/embed/2VoMoB2Ao_E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p> 
+
+            <div data-i18n="Pegasus.Info"></div>
+
+            <div data-i18n="Pegasus.height"></div>
+            <div data-i18n="Pegasus.speed"></div>
+            <div data-i18n="Pegasus.track"></div>
+            <div data-i18n="Pegasus.restriction"></div>
+            <div data-i18n="Pegasus.age"></div>
+
+        <hr style="border-top: 1px solid black;">
+                <h2>Ride Experience</h2>
+        <hr style="border-top: 1px solid black;">
+        <div class="rating-block">
+            <p><strong>Intensity:</strong> <span class="stars">★★☆☆☆</span></p>
+            <p><strong>Thrill Factor:</strong> <span class="stars">★★★☆☆</span></p>
+            <p><strong>Physical Load:</strong> <span class="stars">★★☆☆☆</span></p>
+        </div>
+    <hr style="border-top: 1px solid black;">
+    <a href="{{ url_for('add_to_list', coaster=coaster) }}"> Add this coaster to my list </a>
+
+    <br>
+    <hr style="border-top: 1px solid black;">
+
+<ul class="coaster-list">
+    <li><a class="star" href="/coaster/Blue_Fire">★</a><span>Blue Fire</span></li>
+    <li><a class="star" href="/coaster/Silverstar">★</a><span>Silver Star</span></li>
+    <li><a class="star" href="/coaster/Wodan">★</a><span>Wodan</span></li>
+    <li><a class="star" href="/coaster/Euromir">★</a><span>Euro-Mir</span></li>
+    <li><a class="star" href="/coaster/Voltron">★</a><span>Voltron</span></li>
+    <li><a class="star" href="/coaster/Pegasus">★</a><span>Pegasus</span></li>
+    <li><a class="star" href="/coaster/Poseidon">★</a><span>Poseidon</span></li>
+    <li><a class="star" href="/coaster/Atlantica_Supersplash">★</a><span>Atlantica Supersplash</span></li>
+    <li><a class="star" href="/coaster/Matterhorn_Blitz">★</a><span>Matterhorn Blitz</span></li>
+    <li><a class="star" href="/coaster/Schweizer_Bobbahn">★</a><span>Schweizer Bobbahn</span></li>
+    <li><a class="star" href="/coaster/Alpen Express">★</a><span>Alpenexpress</span></li>
+    <li><a class="star" href="/coaster/Ba_a_a_Express">★</a><span>Ba-a-a Express</span></li>
+    <li><a class="star" href="/coaster/CanCan_Coaster">★</a><span>CanCan Coaster</span></li>
+    <li><a class="star" href="/coaster/Arthur">★</a><span>Arthur</span></li>
+</ul>
+    <a href="/">← Back to start</a>
+    </div>
+</body>
+</html>
