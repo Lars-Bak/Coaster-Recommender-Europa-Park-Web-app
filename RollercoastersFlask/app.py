@@ -16,6 +16,23 @@ init_db()
 
 app = Flask(__name__)
 
+@app.after_request
+def add_header(response):
+
+# ---------- Tell the browser, not to save papes after visiting  ---------- #
+    
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+
+# ---------- safety header against scripts ---------- #
+
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    return response
+
+
+
+
 # ---------- Register all routes ---------- #
 
 register_routes(app)
