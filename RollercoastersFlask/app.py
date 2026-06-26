@@ -33,6 +33,12 @@ def add_header(response):
     return response
 
 
+# ---------- Prevents the website from being loaded in an iframe on another site without authorization (Clickjacking). ---------- #
+
+def add_security_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'DENY' 
+    return response
 
 
 # ---------- Register all routes ---------- #
